@@ -1,0 +1,428 @@
+﻿@using VD.Models;
+@model VD.Models.ViewModel
+@{
+    Layout = null;
+
+    CountryStateCityModel objCSC = new CountryStateCityModel();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="~/assets/vendor/fonts/fontawesome.css">
+    <link rel="stylesheet" href="~/assets/vendor/fonts/ionicons.css">
+    <link rel="stylesheet" href="~/assets/vendor/fonts/linearicons.css">
+    <link rel="stylesheet" href="~/assets/vendor/fonts/open-iconic.css">
+    <link rel="stylesheet" href="~/assets/vendor/fonts/pe-icon-7-stroke.css">
+
+    <!-- Core stylesheets -->
+    <link rel="stylesheet" href="~/assets/vendor/css/rtl/bootstrap.css" class="theme-settings-bootstrap-css">
+    <link rel="stylesheet" href="~/assets/vendor/css/rtl/appwork.css" class="theme-settings-appwork-css">
+    <link rel="stylesheet" href="~/assets/vendor/css/rtl/theme-corporate.css" class="theme-settings-theme-css">
+    <link rel="stylesheet" href="~/assets/vendor/css/rtl/colors.css" class="theme-settings-colors-css">
+    <link rel="stylesheet" href="~/assets/vendor/css/rtl/uikit.css">
+    <link rel="stylesheet" href="~/assets/css/demo.css">
+
+
+    <script src="~/assets/vendor/js/material-ripple.js"></script>
+    <script src="~/assets/vendor/js/layout-helpers.js"></script>
+    <script src="~/assets/vendor/js/theme-settings.js"></script>
+    <script src="~/assets/vendor/js/pace.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="~/assets/vendor/libs/popper/popper.js"></script>
+    <script src="~/assets/vendor/js/bootstrap.js"></script>
+    <script src="~/assets/vendor/js/sidenav.js"></script>
+
+    <!-- Libs -->
+    <script src="~/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <!-- Demo -->
+    <script src="~/assets/js/demo.js"></script>
+    <script src="~/assets/js/ui_navs.js"></script>
+
+</head>
+<body>
+    <div class="col-12">
+        <div class="tab-content pl-3 pt-2">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active show" id="nav-customer-tab" data-toggle="tab" href="#nav-customer" role="tab" aria-controls="nav-customer" aria-selected="true">customer</a>
+                    <a class="nav-item nav-link" id="nav-vendor-tab" data-toggle="tab" role="tab" href="#nav-vendor" aria-controls="nav-vendor" aria-selected="false">vendor</a>
+                </div>
+            </nav>
+        </div>
+        <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+            <div class="tab-pane fade active show" id="nav-customer" role="tabpanel" aria-labelledby="nav-customer-tab">
+                <div class="container-fluid flex-grow-1 container-p-y">
+                    <form>
+                        <div class="demo-inline-spacing mt-3">
+                            <button type="button" class="btn btn-success">Save</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </div>
+
+                        <div class="card mb-4">
+                            <h6 class="card-header">
+                                Add Customer Details
+                            </h6>
+                            <div class="card-body">
+
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">First Name</label>
+                                            @Html.TextBoxFor(m=>m.objCustomer.FirstName, new { @type = "text", @class = "form-control", @placeholder = "First Name" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Last Name</label>
+                                            @Html.TextBoxFor(m => m.objCustomer.MiddleName, new { @type = "text", @class = "form-control", @placeholder = "Middel Name" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Last Name</label>
+                                            @Html.TextBoxFor(m => m.objCustomer.LastName, new { @type = "text", @class = "form-control", @placeholder = "Last Name" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Phone Number 1</label>
+                                            @Html.TextBoxFor(m => m.objCustomer.PhoneNumber1, new { @type = "number", @class = "form-control", @placeholder = "Phone Number 1" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Phone Number 2</label>
+                                            @Html.TextBoxFor(m => m.objCustomer.PhoneNumber2, new { @type = "number", @class = "form-control", @placeholder = "Phone Number 2" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Email</label>
+                                            @Html.TextBoxFor(m => m.objCustomer.Email, new { @type = "email", @class = "form-control", @placeholder = "Phone Number 2" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Address Line 1</label>
+                                            @Html.TextBoxFor(m => m.objCustomer.AddressLine1, new { @type = "text", @class = "form-control", @placeholder = "Address Line 1" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Address Line 2</label>
+                                            @Html.TextBoxFor(m => m.objCustomer.AddressLine2, new { @type = "text", @class = "form-control", @placeholder = "Address Line 2" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Zip Code</label>
+                                            @Html.TextBoxFor(m => m.objCustomer.Zipcode, new { @type = "number", @class = "form-control", @placeholder = "Zip Code" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Country</label>
+                                            @Html.DropDownListFor(m => m.objCustomer.CountryName, objCSC.CountryList, new { @class = "custom-select" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">State</label>
+                                            @*@Html.DropDownList("State", objCSC.StateList, new { @class = "custom-select" })*@
+                                            @Html.DropDownListFor(m=>m.objCustomer.StateName, objCSC.StateList, new { @class = "custom-select" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">City</label>
+                                            @Html.TextBoxFor(m => m.objCustomer.CityName, new { @type = "text", @class = "form-control", @placeholder = "City" })
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </form>
+                    <div class="tab-content pl-3 pt-2">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab-child" role="tablist">
+                                <a class="nav-item nav-link active show" id="nav-addressCS-tab" data-toggle="tab" href="#nav-addressCS" role="tab" aria-controls="nav-addressCS" aria-selected="true">Address</a>
+                                <a class="nav-item nav-link" id="nav-contactCS-tab" data-toggle="tab" href="#nav-contactCS" role="tab" aria-controls="nav-contactCS" aria-selected="false">Contact</a>
+                                <a class="nav-item nav-link" id="nav-nameCS-tab" data-toggle="tab" href="#nav-nameCS" role="tab" aria-controls="nav-nameCS" aria-selected="false">Name</a>
+                            </div>
+                        </nav>
+                        <div class="tab-pane fade active show" id="nav-addressCS" role="tabpanel" aria-labelledby="nav-addressCS-tab">
+                            <div class="container-fluid flex-grow-1 container-p-y">
+                                <table class="table-responsive table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Address</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            int count = 1;
+                                            foreach (var addrItem in Model.customertList)
+                                            {
+                                                <tr>
+                                                    <td>@count</td>
+                                                    <td>@addrItem.FirstName</td>
+                                                    <td>@addrItem.LastName</td>
+                                                    <td>@addrItem.AddressLine1 , @addrItem.AddressLine2 , @addrItem.CountryName , @addrItem.StateName , @addrItem.CityName , @addrItem.Zipcode </td>
+                                                </tr>
+
+                                                count++;
+                                            }
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-contactCS" role="tabpanel" aria-labelledby="nav-contactCS-tab">
+                            <div class="container-fluid flex-grow-1 container-p-y">
+                                <table class="table-responsive table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Phone Number</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            int count2 = 1;
+                                            foreach (var addrItem in Model.customertList)
+                                            {
+                                                <tr>
+                                                    <td>@count2</td>
+                                                    <td>@addrItem.FirstName @addrItem.LastName</td>
+                                                    <td>@addrItem.PhoneNumber1 / @addrItem.PhoneNumber2</td>
+                                                    <td>@addrItem.Email</td>
+                                                </tr>
+
+                                                count2++;
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-nameCS" role="tabpanel" aria-labelledby="nav-nameCS-tab">
+                            <div class="container-fluid flex-grow-1 container-p-y">
+                                <table class="table-responsive table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>First Name</th>
+                                            <th>Middle Name</th>
+                                            <th>Last Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            int count3 = 1;
+                                            foreach (var addrItem in Model.customertList)
+                                            {
+                                                <tr>
+                                                    <td>@count3</td>
+                                                    <td>@addrItem.FirstName</td>
+                                                    <td>@addrItem.MiddleName</td>
+                                                    <td>@addrItem.LastName</td>
+                                                </tr>
+
+                                                count3++;
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                
+                </div>
+            <div class="tab-pane fade" id="nav-vendor" role="tabpanel" aria-labelledby="nav-vendor-tab">
+                <div class="container-fluid flex-grow-1 container-p-y">
+                    <form>
+                        <div class="demo-inline-spacing mt-3">
+                            <button type="button" class="btn btn-success">Save</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </div>
+
+                        <div class="card mb-4">
+                            <h6 class="card-header">
+                                Add Vendor Details
+                            </h6>
+                            <div class="card-body">
+
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">First Name</label>
+                                            @Html.TextBoxFor(m => m.objVendor.FirstName, new { @type = "text", @class = "form-control", @placeholder = "First Name" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Last Name</label>
+                                            @Html.TextBoxFor(m => m.objVendor.LastName, new { @type = "text", @class = "form-control", @placeholder = "Last Name" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Email</label>
+                                            @Html.TextBoxFor(m => m.objVendor.Email, new { @type = "email", @class = "form-control", @placeholder = "Email Address" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Phone Number</label>
+                                            @Html.TextBoxFor(m => m.objVendor.PhoneNumber, new { @type = "number", @class = "form-control", @placeholder = "Phone Number" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Website</label>
+                                            @Html.TextBoxFor(m => m.objVendor.Website, new { @type = "text", @class = "form-control", @placeholder = "Website" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Site URL</label>
+                                            @Html.TextBoxFor(m => m.objVendor.SiteUrl, new { @type = "text", @class = "form-control", @placeholder = "Site URL" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Vendor Licence No.</label>
+                                            @Html.TextBoxFor(m => m.objVendor.LicenceNumber, new { @type = "number", @class = "form-control", @placeholder = "Vendor Licence No." })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Vendor Code</label>
+                                            @Html.TextBoxFor(m => m.objVendor.VendorCode, new { @type = "text", @class = "form-control", @placeholder = "Vendor Code" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Shop Number</label>
+                                            @Html.TextBoxFor(m => m.objVendor.ShopNumber, new { @type = "text", @class = "form-control", @placeholder = "Shop Number" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="tab-content pl-3 pt-2">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab-child" role="tablist">
+                                <a class="nav-item nav-link active show" id="nav-details-tab" data-toggle="tab" href="#nav-details" role="tab" aria-controls="nav-details" aria-selected="true">Details</a>
+                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+                            </div>
+                        </nav>
+                        <div class="tab-pane fade active show" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
+                            <div class="container-fluid flex-grow-1 container-p-y" style="padding:3%">
+                                <table class="table-responsive table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Licence Number</th>
+                                            <th>Vendor Code</th>
+                                            <th>Shop Number</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            int dCount = 1;
+                                            foreach (var vendorDetailItem in Model.vendorList)
+                                            {
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@vendorDetailItem.FirstName</td>
+                                            <td>@vendorDetailItem.LastName</td>
+                                            <td>@vendorDetailItem.LicenceNumber</td>
+                                            <td>@vendorDetailItem.VendorCode</td>
+                                            <td>@vendorDetailItem.ShopNumber</td>
+                                        </tr>
+
+                                                dCount++;
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <div class="container-fluid flex-grow-1 container-p-y">
+                                <table class="table-responsive table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Phone Number</th>
+                                            <th>Email</th>
+                                            <th>WebSite</th>
+                                            <th>Site URL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            int cCount = 1;
+                                            foreach (var vendorDetailItem in Model.vendorList)
+                                            {
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@vendorDetailItem.FirstName</td>
+                                            <td>@vendorDetailItem.LastName</td>
+                                            <td>@vendorDetailItem.PhoneNumber</td>
+                                            <td><a href="mailto:@vendorDetailItem.Email?Subject=Hello%20again" target="_top">@vendorDetailItem.Email</a></td>
+                                            <td><a href="http://@vendorDetailItem.Website" target="_blank">@vendorDetailItem.Website</a></td>
+                                            <td><a href="http://@vendorDetailItem.SiteUrl" target="_blank">@vendorDetailItem.SiteUrl</a></td>
+                                        </tr>
+
+                                                cCount++;
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    function MyFunction(currentEle)
+    {
+        $(currentEle).addClass('nav-link active');
+    }
+</script>

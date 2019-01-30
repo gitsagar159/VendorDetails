@@ -1,0 +1,109 @@
+﻿@model List<VD.Models.VendorModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div style="margin-top:5%">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Vendor Details
+        </div>
+        <div class="panel-body">
+            <div style="font-family:Calibri;font-size:18px;">
+                <div class="row" style="padding-bottom:2%">
+                    <div class="col-md-4">
+                        <label>First Name</label> : Sagar
+                    </div>
+                    <div class="col-md-4">
+                        <label>Last Name</label> : Dudhaiya
+                    </div>
+                    <div class="col-md-4">
+                        <label>Phone Number</label> : 1234567890
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom:2%">
+                    <div class="col-md-4">
+                        <label>City</label> : Ahmedabad
+                    </div>
+                    <div class="col-md-4">
+                        <label>State</label> : Gujarat
+                    </div>
+                    <div class="col-md-4">
+                        <label>Zip Code</label> : 132456
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom:2%">
+                    <div class="col-md-4">
+                        <label>Email</label> : sagar@gmail.com
+                    </div>
+                    <div class="col-md-4">
+                        <label>Website</label> : www.sagar.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div style="margin-top:5%">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Vendor List
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table" style="overflow-x:scroll;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Phone Number</th>
+                            <th>Email </th>
+                            <th>Website</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int count = 1;
+                            foreach (var item in Model)
+                            {
+                                if (count % 2 == 0)
+                                {
+                        <tr class="success">
+                            <td>@count</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.PhoneNumber</td>
+                            <td>@item.Email</td>
+                            <td>@item.Website</td>
+                        </tr>
+                                }
+                                else
+                                {
+                        <tr class="info">
+                            <td>@count</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.PhoneNumber</td>
+                            <td>@item.Email</td>
+                            <td>@item.Website</td>
+                        </tr>
+                                }
+
+                                count++;
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
