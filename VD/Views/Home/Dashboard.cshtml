@@ -8,7 +8,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html class="default-style">
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Dashboard</title>
@@ -42,6 +42,7 @@
     <!-- Demo -->
     <script src="~/assets/js/demo.js"></script>
     <script src="~/assets/js/ui_navs.js"></script>
+    <link rel="stylesheet" href="~/assets/vendor/libs/datatables/datatables.css">
 
 </head>
 <body>
@@ -49,8 +50,8 @@
         <div class="tab-content pl-3 pt-2">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active show" id="nav-customer-tab" data-toggle="tab" href="#nav-customer" role="tab" aria-controls="nav-customer" aria-selected="true">customer</a>
-                    <a class="nav-item nav-link" id="nav-vendor-tab" data-toggle="tab" role="tab" href="#nav-vendor" aria-controls="nav-vendor" aria-selected="false">vendor</a>
+                    <a class="nav-item nav-link active show" id="nav-customer-tab" data-toggle="tab" href="#nav-customer" role="tab" aria-controls="nav-customer" aria-selected="true">Customer</a>
+                    <a class="nav-item nav-link" id="nav-vendor-tab" data-toggle="tab" role="tab" href="#nav-vendor" aria-controls="nav-vendor" aria-selected="false">Vendor</a>
                 </div>
             </nav>
         </div>
@@ -58,7 +59,7 @@
             <div class="tab-pane fade active show" id="nav-customer" role="tabpanel" aria-labelledby="nav-customer-tab">
                 <div class="container-fluid flex-grow-1 container-p-y">
                     <form>
-                        <div class="demo-inline-spacing mt-3">
+                        <div class="demo-inline-spacing mt-3" style="margin-top: -1rem !important;">
                             <button type="button" class="btn btn-success">Save</button>
                             <button type="button" class="btn btn-danger">Delete</button>
                         </div>
@@ -165,96 +166,117 @@
                         </nav>
                         <div class="tab-pane fade active show" id="nav-addressCS" role="tabpanel" aria-labelledby="nav-addressCS-tab">
                             <div class="container-fluid flex-grow-1 container-p-y">
-                                <table class="table-responsive table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Address</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @{
-                                            int count = 1;
-                                            foreach (var addrItem in Model.customertList)
-                                            {
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        DataTable within card
+                                    </h6>
+                                    <div class="card-datatable table-responsive">
+                                        <table class="datatables-demo table table-striped table-bordered">
+                                            <thead>
                                                 <tr>
-                                                    <td>@count</td>
-                                                    <td>@addrItem.FirstName</td>
-                                                    <td>@addrItem.LastName</td>
-                                                    <td>@addrItem.AddressLine1 , @addrItem.AddressLine2 , @addrItem.CountryName , @addrItem.StateName , @addrItem.CityName , @addrItem.Zipcode </td>
+                                                    <th>#</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Address</th>
                                                 </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    int count = 1;
+                                                    foreach (var addrItem in Model.customertList)
+                                                    {
+                                                        <tr>
+                                                            <td>@count</td>
+                                                            <td>@addrItem.FirstName</td>
+                                                            <td>@addrItem.LastName</td>
+                                                            <td>@addrItem.AddressLine1 , @addrItem.AddressLine2 , @addrItem.CountryName , @addrItem.StateName , @addrItem.CityName , @addrItem.Zipcode </td>
+                                                        </tr>
 
-                                                count++;
-                                            }
-                                        }
+                                                        count++;
+                                                    }
+                                                }
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="nav-contactCS" role="tabpanel" aria-labelledby="nav-contactCS-tab">
-                            <div class="container-fluid flex-grow-1 container-p-y">
-                                <table class="table-responsive table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Phone Number</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @{
-                                            int count2 = 1;
-                                            foreach (var addrItem in Model.customertList)
-                                            {
-                                                <tr>
-                                                    <td>@count2</td>
-                                                    <td>@addrItem.FirstName @addrItem.LastName</td>
-                                                    <td>@addrItem.PhoneNumber1 / @addrItem.PhoneNumber2</td>
-                                                    <td>@addrItem.Email</td>
-                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="nav-contactCS" role="tabpanel" aria-labelledby="nav-contactCS-tab">
+                                    <div class="container-fluid flex-grow-1 container-p-y">
+                                        <div class="card">
+                                            <h6 class="card-header">
+                                                DataTable within card
+                                            </h6>
+                                            <div class="card-datatable table-responsive">
+                                                <table class="datatables-demo table table-striped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Name</th>
+                                                            <th>Phone Number</th>
+                                                            <th>Email</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @{
+                                                            int count2 = 1;
+                                                            foreach (var addrItem in Model.customertList)
+                                                            {
+                                                                <tr>
+                                                                    <td>@count2</td>
+                                                                    <td>@addrItem.FirstName @addrItem.LastName</td>
+                                                                    <td>@addrItem.PhoneNumber1 / @addrItem.PhoneNumber2</td>
+                                                                    <td>@addrItem.Email</td>
+                                                                </tr>
 
-                                                count2++;
-                                            }
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="nav-nameCS" role="tabpanel" aria-labelledby="nav-nameCS-tab">
-                            <div class="container-fluid flex-grow-1 container-p-y">
-                                <table class="table-responsive table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Middle Name</th>
-                                            <th>Last Name</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @{
-                                            int count3 = 1;
-                                            foreach (var addrItem in Model.customertList)
-                                            {
-                                                <tr>
-                                                    <td>@count3</td>
-                                                    <td>@addrItem.FirstName</td>
-                                                    <td>@addrItem.MiddleName</td>
-                                                    <td>@addrItem.LastName</td>
-                                                </tr>
+                                                                count2++;
+                                                            }
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-nameCS" role="tabpanel" aria-labelledby="nav-nameCS-tab">
+                                            <div class="container-fluid flex-grow-1 container-p-y">
+                                                <div class="card">
+                                                    <h6 class="card-header">
+                                                        DataTable within card
+                                                    </h6>
+                                                    <div class="card-datatable table-responsive">
+                                                        <table class="datatables-demo table table-striped table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>First Name</th>
+                                                                    <th>Middle Name</th>
+                                                                    <th>Last Name</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @{
+                                                                    int count3 = 1;
+                                                                    foreach (var addrItem in Model.customertList)
+                                                                    {
+                                                                        <tr>
+                                                                            <td>@count3</td>
+                                                                            <td>@addrItem.FirstName</td>
+                                                                            <td>@addrItem.MiddleName</td>
+                                                                            <td>@addrItem.LastName</td>
+                                                                        </tr>
 
-                                                count3++;
-                                            }
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                                                                        count3++;
+                                                                    }
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
                 </div>
                
                 
@@ -262,7 +284,7 @@
             <div class="tab-pane fade" id="nav-vendor" role="tabpanel" aria-labelledby="nav-vendor-tab">
                 <div class="container-fluid flex-grow-1 container-p-y">
                     <form>
-                        <div class="demo-inline-spacing mt-3">
+                        <div class="demo-inline-spacing mt-3" style="margin-top: -1rem !important;">
                             <button type="button" class="btn btn-success">Save</button>
                             <button type="button" class="btn btn-danger">Delete</button>
                         </div>
@@ -345,84 +367,94 @@
                         </nav>
                         <div class="tab-pane fade active show" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
                             <div class="container-fluid flex-grow-1 container-p-y" style="padding:3%">
-                                <table class="table-responsive table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Licence Number</th>
-                                            <th>Vendor Code</th>
-                                            <th>Shop Number</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @{
-                                            int dCount = 1;
-                                            foreach (var vendorDetailItem in Model.vendorList)
-                                            {
-                                        <tr>
-                                            <td>@count</td>
-                                            <td>@vendorDetailItem.FirstName</td>
-                                            <td>@vendorDetailItem.LastName</td>
-                                            <td>@vendorDetailItem.LicenceNumber</td>
-                                            <td>@vendorDetailItem.VendorCode</td>
-                                            <td>@vendorDetailItem.ShopNumber</td>
-                                        </tr>
+                                <div class="card">
+                                    <h6 class="card-header">
+                                        DataTable within card
+                                    </h6>
+                                    <div class="card-datatable table-responsive">
+                                        <table class="datatables-demo table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Licence Number</th>
+                                                    <th>Vendor Code</th>
+                                                    <th>Shop Number</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    int dCount = 1;
+                                                    foreach (var vendorDetailItem in Model.vendorList)
+                                                    {
+                                                        <tr>
+                                                            <td>@count</td>
+                                                            <td>@vendorDetailItem.FirstName</td>
+                                                            <td>@vendorDetailItem.LastName</td>
+                                                            <td>@vendorDetailItem.LicenceNumber</td>
+                                                            <td>@vendorDetailItem.VendorCode</td>
+                                                            <td>@vendorDetailItem.ShopNumber</td>
+                                                        </tr>
 
-                                                dCount++;
-                                            }
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                            <div class="container-fluid flex-grow-1 container-p-y">
-                                <table class="table-responsive table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Phone Number</th>
-                                            <th>Email</th>
-                                            <th>WebSite</th>
-                                            <th>Site URL</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @{
-                                            int cCount = 1;
-                                            foreach (var vendorDetailItem in Model.vendorList)
-                                            {
-                                        <tr>
-                                            <td>@count</td>
-                                            <td>@vendorDetailItem.FirstName</td>
-                                            <td>@vendorDetailItem.LastName</td>
-                                            <td>@vendorDetailItem.PhoneNumber</td>
-                                            <td><a href="mailto:@vendorDetailItem.Email?Subject=Hello%20again" target="_top">@vendorDetailItem.Email</a></td>
-                                            <td><a href="http://@vendorDetailItem.Website" target="_blank">@vendorDetailItem.Website</a></td>
-                                            <td><a href="http://@vendorDetailItem.SiteUrl" target="_blank">@vendorDetailItem.SiteUrl</a></td>
-                                        </tr>
+                                                        dCount++;
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                    <div class="container-fluid flex-grow-1 container-p-y">
+                                        <div class="card">
+                                            <h6 class="card-header">
+                                                DataTable within card
+                                            </h6>
+                                            <div class="card-datatable table-responsive">
+                                                <table class="datatables-demo table table-striped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>First Name</th>
+                                                            <th>Last Name</th>
+                                                            <th>Phone Number</th>
+                                                            <th>Email</th>
+                                                            <th>WebSite</th>
+                                                            <th>Site URL</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @{
+                                                            int cCount = 1;
+                                                            foreach (var vendorDetailItem in Model.vendorList)
+                                                            {
+                                                                <tr>
+                                                                    <td>@count</td>
+                                                                    <td>@vendorDetailItem.FirstName</td>
+                                                                    <td>@vendorDetailItem.LastName</td>
+                                                                    <td>@vendorDetailItem.PhoneNumber</td>
+                                                                    <td><a href="mailto:@vendorDetailItem.Email?Subject=Hello%20again" target="_top">@vendorDetailItem.Email</a></td>
+                                                                    <td><a href="http://@vendorDetailItem.Website" target="_blank">@vendorDetailItem.Website</a></td>
+                                                                    <td><a href="http://@vendorDetailItem.SiteUrl" target="_blank">@vendorDetailItem.SiteUrl</a></td>
+                                                                </tr>
 
-                                                cCount++;
-                                            }
-                                        }
-                                    </tbody>
-                                </table>
+                                                                cCount++;
+                                                            }
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
                             </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             </div>
     </div>
 </body>
 </html>
-<script type="text/javascript">
-    function MyFunction(currentEle)
-    {
-        $(currentEle).addClass('nav-link active');
-    }
-</script>
+<script src="~/assets/vendor/libs/datatables/datatables.js"></script>
+<script src="~/assets/js/tables_datatables.js"></script>
